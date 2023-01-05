@@ -5,5 +5,6 @@ import OrganisationIcon from "./organisation-icon.svg";
 import SearchIcon from "./search-icon.svg";
 import TwitterIcon from "./twitter-icon.svg";
 import LightModeIcon from "./lightMode.svg";
+import PeopleIcon from "./people-icon.svg";
 
-export { LinkIcon, LocationIcon, MailIcon, OrganisationIcon, SearchIcon, TwitterIcon, LightModeIcon }
+export { LinkIcon, LocationIcon, MailIcon, OrganisationIcon, SearchIcon, TwitterIcon, LightModeIcon, PeopleIcon }
