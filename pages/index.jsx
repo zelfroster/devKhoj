@@ -25,7 +25,7 @@ const jetBrainsMono = JetBrains_Mono({
 export default function Home() {
   const [userData, setUserData] = useState({});
   const [userRepos, setUserRepos] = useState({});
-  const [searchString, setSearchString] = useState("Dun-sin");
+  const [searchString, setSearchString] = useState("subhoghoshx");
   const [inputString, setInputString] = useState("");
   useEffect(() => {
     const fetchData = async () => {

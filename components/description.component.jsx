@@ -33,7 +33,7 @@ const Description = ({ data, repoData }) => {
             }
             {
               data.company &&
-              <div className="flex gap-1 flex-row-reverse items-center md:flex-row">
+              <div className="w-max flex gap-1 flex-row-reverse items-center md:flex-row">
                 <h3 className="text-white/80">{data.company}</h3>
                 <Image src={OrganisationIcon} width="auto" height="auto" alt="blog link icon" />
               </div>
@@ -42,7 +42,7 @@ const Description = ({ data, repoData }) => {
         }
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-xl gradient-text w-max">Most Starred Repositories</h2>
+        <h2 className="text-xl gradient-text w-max">⭐ Most Starred Repositories</h2>
         <div className="flex flex-col gap-4 md:flex-row">
           {Array
             .from(mostStarredRepoArray)
