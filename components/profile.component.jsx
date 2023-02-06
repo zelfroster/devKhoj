@@ -33,13 +33,13 @@ const Profile = ({ data }) => {
             <p className="text-lg gradient-text font-medium md:text-xl">
               @{data.login}
             </p>
-            <p className="text-xs text-white/70 mx-2">●</p>
-            <p className="text-[14px] text-white/50 mt-1 md:mt-0">
+            <p className="text-xs text-white/70 mx-2 -mb-1">●</p>
+            <p className="text-[14px] text-white/50 -mb-1 md:text-[16px]">
               Joined {accountCreationDate}
             </p>
           </div>
         </div>
-        <div className="flex flex-col-reverse items-center gap-3 items-right text-right md:flex-col">
+        <div className="flex flex-col-reverse items-center gap-3 items-right text-right md:flex-col md:items-end">
           <div className="flex gap-4 justify-end md:gap-6">
             {
               data.blog &&
@@ -70,7 +70,7 @@ const Profile = ({ data }) => {
                 followers
               </p>
             </div>
-            <p className="text-xs text-white/70 mx-2 md:text-lg">●</p>
+            <p className="text-xs text-white/70 mx-2">●</p>
             <div className="flex items-end gap-1">
               <p className="md:text-lg text-white">
                 {data.following}
