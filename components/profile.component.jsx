@@ -6,6 +6,7 @@ import {
   LinkIcon,
   PeopleIcon,
 } from "../public/index.js";
+import Link from 'next/link.js';
 
 const Profile = ({ data }) => {
   const [accountCreationDate, setaAcountCreationDate] = useState("")
@@ -40,9 +41,24 @@ const Profile = ({ data }) => {
         </div>
         <div className="flex flex-col gap-3 items-right text-right">
           <div className="flex gap-6 justify-end">
-            <Image src={LinkIcon} alt="people icon" />
-            <Image src={MailIcon} alt="people icon" />
-            <Image src={TwitterIcon} alt="people icon" />
+            {
+              data.blog &&
+              <Link href={'/data.blog'} >
+                <Image src={LinkIcon} width="auto" height="auto" alt="blog link icon" />
+              </Link>
+            }
+            {
+              data.email &&
+              <Link href={'/data.email'} >
+                <Image src={MailIcon} width="auto" height="auto" alt="email icon" />
+              </Link>
+            }
+            {
+              data.twitter_username &&
+              <Link href={`https://twitter.com/${data.twitter_username}`} target="_blank" >
+                <Image src={TwitterIcon} width="auto" height="auto" alt="twitter icon" />
+              </Link>
+            }
           </div>
           <div className="flex items-center">
             <Image src={PeopleIcon} alt="people icon" />

@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { LightModeIcon, SearchIcon } from "../public/index.js";
-import { Sora, JetBrains_Mono } from "@next/font/google";
+import Link from "next/link.js";
+
 import Profile from "../components/profile.component";
 import Description from "../components/description.component.jsx";
+
+import { SiGithub } from 'react-icons/si'
+
+import { SearchIcon } from "../public/index.js";
+
+import { Sora, JetBrains_Mono } from "@next/font/google";
 
 // Google Fonts imported from @next/font/google
 const sora = Sora({
@@ -18,15 +24,23 @@ const jetBrainsMono = JetBrains_Mono({
 
 export default function Home() {
   const [userData, setUserData] = useState({});
-  const [searchString, setSearchString] = useState("subhoghoshX");
+  const [userRepos, setUserRepos] = useState({});
+  const [searchString, setSearchString] = useState("Dun-sin");
   const [inputString, setInputString] = useState("");
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
+      const userDataResponse = await fetch(
         `https://api.github.com/users/${searchString}`,
       );
-      const data = await response.json();
-      setUserData(data);
+      const userData = await userDataResponse.json();
+
+      const userReposResponse = await fetch(
+        `https://api.github.com/users/${searchString}/repos`
+      )
+      const userRepos = await userReposResponse.json();
+
+      setUserData(userData);
+      setUserRepos(userRepos);
     };
     fetchData();
   }, [searchString]);
@@ -56,10 +70,11 @@ export default function Home() {
             <p className={`gradient-text font-bold text-3xl ${sora.className}`}>
               devKhoj
             </p>
-            <div className="flex items-center gap-2">
-              <p className="text-md tracking-widest">LIGHT</p>
-              <Image src={LightModeIcon} alt="light-mode-icon" />
-            </div>
+            <Link
+              href={'https://github.com/zelfroster/devkhoj'}
+            >
+              <SiGithub className="text-4xl p-1 rounded-md bg-gradient-to-r from-[#FF6C6CCC] to-[#8C8AFFCC]" />
+            </Link>
           </nav>
           <div
             id="search-bar"
@@ -69,7 +84,7 @@ export default function Home() {
             <form className="flex justify-between w-full">
               <input
                 type="search"
-                className="bg-transparent text-white/80 text-xl outline-none caret-pink-300"
+                className="w-full bg-transparent text-white/80 text-xl outline-none caret-pink-300"
                 placeholder="Search Github User..."
                 value={inputString}
                 onChange={handleChange}
@@ -86,13 +101,26 @@ export default function Home() {
         </header>
         {
           userData.message === "Not Found" ?
-            <h4 className="text-xl text-white mx-auto w-max">User Not Found</h4>
+            <h4 className="text-xl text-white text-center py-8">User Not Found</h4>
             : <main className="max-w-5xl mx-auto mt-10 flex flex-col gap-6">
               <Profile data={userData} />
-              <Description data={userData} />
+              <Description data={userData} repoData={userRepos} />
             </main>
         }
       </div>
     </>
   );
 }
+{/**/ }
+{/* export async function getStaticProps() { */ }
+{/*   const response = await fetch( */ }
+{/*     `https://api.github.com/users/${searchString}`, */ }
+{/*   ); */ }
+{/*   const data = await response.json(); */ }
+{/**/ }
+{/*   return { */ }
+{/*     props: { */ }
+{/*       data */ }
+{/*     } */ }
+{/*   } */ }
+{/* } */ }
