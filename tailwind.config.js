@@ -13,7 +13,16 @@ module.exports = {
       colors: {
         'lightPurple': '#121227',
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '8rem',
+          "2xl": '6rem',
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: ['prettier-plugin-tailwindcss'],
 }

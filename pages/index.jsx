@@ -65,8 +65,8 @@ export default function Home() {
       <div
         className={`w-full min-h-screen bg-main text-white ${jetBrainsMono.className}`}
       >
-        <header className="max-w-5xl mx-auto">
-          <nav className="flex justify-between py-12">
+        <header className="container mx-auto">
+          <nav className="flex justify-between py-10 md:py-12">
             <p className={`gradient-text font-bold text-3xl ${sora.className}`}>
               devKhoj
             </p>
@@ -78,20 +78,20 @@ export default function Home() {
           </nav>
           <div
             id="search-bar"
-            className="max-w-3xl mx-auto pl-8 pr-2 py-2 flex gap-8 w-full bg-lightPurple rounded-lg border-[1px] border-white/10"
+            className="max-w-3xl mx-auto pl-4 pr-3 py-3 flex flex-row-reverse gap-4 w-full bg-lightPurple rounded-lg border-[1px] border-white/10 md:gap-8 md:pl-8 md:flex-row"
           >
-            <Image src={SearchIcon} alt="search-icon" />
+            <Image src={SearchIcon} width={25} height={25} className="cursor-pointer md:w-8" alt="search-icon" onClick={handleSubmit} />
             <form className="flex justify-between w-full">
               <input
                 type="search"
-                className="w-full bg-transparent text-white/80 text-xl outline-none caret-pink-300"
+                className="w-full bg-transparent text-white/80 text-md outline-none caret-pink-300 md:text-xl"
                 placeholder="Search Github User..."
                 value={inputString}
                 onChange={handleChange}
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-gradientButton rounded-md text-lg font-bold  border-[1px] border-[#A4A4A4]"
+                className="hidden px-6 py-2 bg-gradientButton rounded-md text-lg font-bold  border-[1px] border-[#A4A4A4] md:py-3 md:px-8 md:block"
                 onClick={handleSubmit}
               >
                 Search
@@ -102,7 +102,7 @@ export default function Home() {
         {
           userData.message === "Not Found" ?
             <h4 className="text-xl text-white text-center py-8">User Not Found</h4>
-            : <main className="max-w-5xl mx-auto mt-10 flex flex-col gap-6">
+            : <main className="container mx-auto mt-10 flex flex-col gap-6">
               <Profile data={userData} />
               <Description data={userData} repoData={userRepos} />
             </main>
