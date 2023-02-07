@@ -42,7 +42,7 @@ const Description = ({ data, repoData }) => {
         }
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-xl gradient-text w-max">⭐ Most Starred Repositories</h2>
+        <h2 className="text-xl gradient-text w-max">Most Starred Repo</h2>
         <div className="flex flex-col gap-4 md:flex-row">
           {Array
             .from(mostStarredRepoArray)
