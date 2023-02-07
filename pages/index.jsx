@@ -18,21 +18,21 @@ export default function Home() {
   const [searchString, setSearchString] = useState("rakeshsangem");
   const [inputString, setInputString] = useState("");
   useEffect(() => {
-    {/* const fetchData = async () => { */ }
-    {/*   const userDataResponse = await fetch( */ }
-    {/*     `https://api.github.com/users/${searchString}`, */ }
-    {/*   ); */ }
-    {/*   const userData = await userDataResponse.json(); */ }
-    {/**/ }
-    {/*   const userReposResponse = await fetch( */ }
-    {/*     `https://api.github.com/users/${searchString}/repos` */ }
-    {/*   ) */ }
-    {/*   const userRepos = await userReposResponse.json(); */ }
-    {/**/ }
-    {/*   setUserData(userData); */ }
-    {/*   setUserRepos(userRepos); */ }
-    {/* }; */ }
-    {/* fetchData(); */ }
+    const fetchData = async () => {
+      const userDataResponse = await fetch(
+        `https://api.github.com/users/${searchString}`,
+      );
+      const userData = await userDataResponse.json();
+
+      const userReposResponse = await fetch(
+        `https://api.github.com/users/${searchString}/repos`
+      )
+      const userRepos = await userReposResponse.json();
+
+      setUserData(userData);
+      setUserRepos(userRepos);
+    };
+    fetchData();
   }, [searchString]);
   return (
     <>
