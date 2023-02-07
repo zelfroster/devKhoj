@@ -24,22 +24,22 @@ const Profile = ({ data }) => {
             alt="user image"
             className="rounded-full border-pink-400 border-2 md:w-[120px]"
           />
-          : <div className="bg-white/10 h-[120px] w-[120px] rounded-full shrink-0"></div>
+          : <div className="bg-white/10 h-[100px] w-[100px] rounded-full shrink-0"></div>
       }
-      <div className="flex flex-col gap-2 justify-between items-center w-full md:flex-row">
+      <div className="flex flex-col gap-1 justify-between items-center w-full lg:flex-row">
         <div className="flex flex-col gap-3 items-left">
-          <h2 className="text-3xl font-semibold text-center md:text-left">{data.name}</h2>
-          <div className="flex flex-col flex-wrap justify-center items-center -mt-2 md:flex-row">
-            <p className="text-lg gradient-text font-medium md:text-xl">
+          <h2 className="text-3xl font-semibold text-center lg:text-left">{data.name}</h2>
+          <div className="flex flex-col flex-wrap justify-center items-center -mt-2 xs:flex-row">
+            <p className="text-lg gradient-text font-medium lg:text-xl">
               @{data.login}
             </p>
-            <p className="hidden text-xs text-white/70 mx-2 -mb-1 md:block">●</p>
-            <p className="text-[14px] text-white/50 -mb-1 md:text-[16px]">
+            <p className="hidden text-xs text-white/70 mx-2 -mb-1 xs:block">●</p>
+            <p className="text-[14px] text-white/50 -mb-1 lg:text-[16px]">
               Joined {accountCreationDate}
             </p>
           </div>
         </div>
-        <div className="flex flex-col-reverse items-center gap-3 items-right text-right md:flex-col md:items-end">
+        <div className="flex flex-col-reverse items-center gap-3 items-right text-right lg:flex-col md:items-end lg:gap-2 sm:gap-6 xs:flex-row-reverse">
           <div className="flex gap-4 justify-end md:gap-6">
             {
               data.blog &&

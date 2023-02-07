@@ -111,16 +111,3 @@ export default function Home() {
     </>
   );
 }
-{/**/ }
-{/* export async function getStaticProps() { */ }
-{/*   const response = await fetch( */ }
-{/*     `https://api.github.com/users/${searchString}`, */ }
-{/*   ); */ }
-{/*   const data = await response.json(); */ }
-{/**/ }
-{/*   return { */ }
-{/*     props: { */ }
-{/*       data */ }
-{/*     } */ }
-{/*   } */ }
-{/* } */ }
