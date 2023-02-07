@@ -29,11 +29,11 @@ const Profile = ({ data }) => {
       <div className="flex flex-col gap-2 justify-between items-center w-full md:flex-row">
         <div className="flex flex-col gap-3 items-left">
           <h2 className="text-3xl font-semibold text-center md:text-left">{data.name}</h2>
-          <div className="flex flex-wrap justify-center items-center -mt-2">
+          <div className="flex flex-col flex-wrap justify-center items-center -mt-2 md:flex-row">
             <p className="text-lg gradient-text font-medium md:text-xl">
               @{data.login}
             </p>
-            <p className="text-xs text-white/70 mx-2 -mb-1">●</p>
+            <p className="hidden text-xs text-white/70 mx-2 -mb-1 md:block">●</p>
             <p className="text-[14px] text-white/50 -mb-1 md:text-[16px]">
               Joined {accountCreationDate}
             </p>
