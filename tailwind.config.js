@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+        ...defaultTheme.screens,
+      },
       backgroundImage: {
         'main': 'linear-gradient(180deg, #040412 -51.81%, #121220 161.57%)',
         'gradientButton': 'linear-gradient(98.72deg, rgba(255, 108, 108, 0.8) 0%, rgba(140, 138, 255, 0.8) 100%);'
@@ -18,7 +24,8 @@ module.exports = {
         padding: {
           DEFAULT: '1rem',
           sm: '2rem',
-          lg: '8rem',
+          lg: '4rem',
+          xl: '8rem',
           "2xl": '12rem',
           "3xl": '16rem',
         },
