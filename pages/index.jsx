@@ -7,6 +7,7 @@ import Description from "../components/description.component.jsx";
 
 import { JetBrains_Mono } from "@next/font/google";
 import Footer from "../components/footer.component";
+import Image from "next/image";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: "latin",
@@ -46,17 +47,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div
-        className={`w-full min-h-screen bg-main text-white ${jetBrainsMono.className}`}
+        className={`w-full min-h-screen flex flex-col justify-between bg-main text-white ${jetBrainsMono.className}`}
       >
-        <Header inputString={inputString} setInputString={setInputString} setSearchString={setSearchString} />
-        {
-          userData.message === "Not Found" ?
-            <h4 className="text-xl text-white text-center py-8">User Not Found</h4>
-            : <main className="container mx-auto mt-10 flex flex-col gap-6">
-              <Profile data={userData} />
-              <Description data={userData} repoData={userRepos} />
-            </main>
-        }
+        <div className="flex flex-col gap-10">
+          <Header inputString={inputString} setInputString={setInputString} setSearchString={setSearchString} />
+          {
+            userData.message === "Not Found" ?
+              <main className="flex flex-col gap-6 items-center animate-shake">
+                <Image src="/images/UserNotFound.png" width={180} height={100} alt="user not found image" />
+                <h4 className="bg-lightPurple/60 border-[1px] border-white/10 px-6 py-4 rounded-md text-2xl font-bold text-white/80 text-center">User Not Found</h4>
+              </main>
+              : <main key={userData.id} className="container mx-auto flex flex-col gap-6">
+                <Profile data={userData} />
+                <Description data={userData} repoData={userRepos} />
+              </main>
+          }
+        </div>
         <Footer />
       </div>
     </>
