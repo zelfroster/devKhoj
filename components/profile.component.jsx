@@ -5,7 +5,7 @@ import {
   TwitterIcon,
   LinkIcon,
   PeopleIcon,
-} from "../public/index.js";
+} from "../public/icons";
 import Link from 'next/link.js';
 
 const Profile = ({ data }) => {
@@ -14,7 +14,7 @@ const Profile = ({ data }) => {
     data.created_at ? setaAcountCreationDate(data.created_at.replace(/T[^.]+$/, "")) : "";
   }, [data.created_at]);
   return (
-    <section className="px-4 py-6 flex flex-col justify-center items-center gap-4 bg-lightPurple border-[1px] border-white/10 rounded-lg md:px-10 md:gap-10 md:justify-between md:flex-row">
+    <section className="px-4 py-6 flex flex-col justify-center items-center gap-4 bg-lightPurple border-[1px] border-white/10 rounded-lg md:px-10 md:gap-10 md:justify-between md:flex-row animate-slideDown">
       {
         data.avatar_url ?
           <Image

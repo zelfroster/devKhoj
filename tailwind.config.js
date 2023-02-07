@@ -30,6 +30,21 @@ module.exports = {
           "3xl": '16rem',
         },
       },
+      animation: {
+        slideDown: 'slideDown 0.5s ease-in-out',
+        shake: 'shake 0.5s ease-in-out',
+      },
+      keyframes: {
+        slideDown: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0px)', opacity: '1' },
+        },
+        shake: {
+          '0%,100%': { transform: 'translateX(0px)' },
+          '20%,60%': { transform: 'translateX(-10px)' },
+          '40%,80%': { transform: 'translateX(10px)' },
+        }
+      }
     },
   },
   plugins: ['prettier-plugin-tailwindcss'],

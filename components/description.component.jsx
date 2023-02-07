@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { LocationIcon, OrganisationIcon } from '../public/index.js'
+import { LocationIcon, OrganisationIcon } from '../public/icons'
 import RepoCard from './repocard.component.jsx'
 
 const Description = ({ data, repoData }) => {
@@ -15,7 +15,7 @@ const Description = ({ data, repoData }) => {
   )
   return (
     //temp margin
-    <section className="p-6 text-white/80 flex gap-10 flex-col justify-between bg-lightPurple border-[1px] border-white/10 rounded-lg md:p-10">
+    <section className="p-6 text-white/80 flex gap-10 flex-col justify-between bg-lightPurple border-[1px] border-white/10 rounded-lg md:p-10 animate-slideDown">
       <div className="flex gap-6 flex-col justify-between w-full md:gap-10 md:flex-row">
         <div className="flex flex-col justify-start items-start gap-2">
           <h3 className="gradient-text text-xl font-medium">Profile Bio</h3>
