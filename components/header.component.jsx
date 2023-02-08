@@ -22,9 +22,9 @@ const Header = ({ inputString, setInputString, setSearchString }) => {
   return (
     <header className="container mx-auto">
       <nav className="flex justify-between py-10 md:py-12">
-        <p className={`gradient-text font-bold text-3xl ${sora.className}`}>
+        <Link href={'/'} className={`gradient-text font-bold text-3xl ${sora.className}`}>
           devKhoj
-        </p>
+        </Link>
         <Link
           href={'https://github.com/zelfroster/devkhoj'}
         >
