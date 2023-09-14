@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiGithub } from "react-icons/si";
 
-import { SearchIcon } from "../../public/icons";
+import { SearchIcon } from "@/public/icons";
 
 import { Sora } from "next/font/google";
 

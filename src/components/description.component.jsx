@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { LocationIcon, OrganisationIcon } from "../../public/icons";
-import RepoCard from "./repocard.component.jsx";
+import { LocationIcon, OrganisationIcon } from "@/public/icons";
+import RepoCard from "./repo-card.component";
 
 export default function Description({ data, repoData }) {
   const [mostStarredRepoArray, setMostStarredRepoArray] = useState([]);

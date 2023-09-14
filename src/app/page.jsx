@@ -11,10 +11,62 @@ import Description from "@/components/description.component";
 import Footer from "@/components/footer.component";
 
 import { JetBrains_Mono } from "next/font/google";
+import LineChart from "@/components/line-chart.component";
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
+
+const sampleData = [
+  {
+    date: "Sun Jan 02 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 302,
+  },
+  {
+    date: "Sun Jan 09 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 196,
+  },
+  {
+    date: "Sun Jan 16 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 143,
+  },
+  {
+    date: "Sun Jan 23 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 102,
+  },
+  {
+    date: "Sun Jan 30 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 20,
+  },
+  {
+    date: "Sun Feb 06 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 42,
+  },
+  {
+    date: "Sun Feb 13 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 2,
+  },
+  {
+    date: "Sun Feb 20 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 122,
+  },
+  {
+    date: "Sun Feb 27 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 203,
+  },
+  {
+    date: "Sun Mar 06 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 202,
+  },
+  {
+    date: "Sun Mar 13 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 20,
+  },
+  {
+    date: "Sun Mar 20 2022 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    total: 22,
+  },
+];
 
 export default function Home() {
   const [userData, setUserData] = useState({});
@@ -66,7 +118,7 @@ export default function Home() {
                 height={100}
                 alt="user not found image"
               />
-              <h4 className="bg-lightPurple/60 border-[1px] border-white/10 px-6 py-4 rounded-md text-2xl font-bold text-white/80 text-center">
+              <h4 className="bg-lightPurple border-[1px] border-white/10 px-6 py-4 rounded-md text-2xl font-bold text-white/80 text-center">
                 User Not Found
               </h4>
             </main>
@@ -77,6 +129,10 @@ export default function Home() {
             >
               <Profile data={userData} />
               <Description data={userData} repoData={userRepos} />
+              <details className="bg-lightPurple border border-white/10 rounded-lg p-4">
+                <summary>Contribution Graph</summary>
+                <LineChart data={sampleData} />
+              </details>
             </main>
           )}
         </div>

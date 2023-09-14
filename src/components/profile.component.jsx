@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import {
-  MailIcon,
-  TwitterIcon,
-  LinkIcon,
-  PeopleIcon,
-} from "../../public/icons";
+import { MailIcon, TwitterIcon, LinkIcon, PeopleIcon } from "@/public/icons";
 import Link from "next/link.js";
 
 export default function Profile({ data }) {
