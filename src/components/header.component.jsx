@@ -1,17 +1,21 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { SiGithub } from 'react-icons/si'
+import Image from "next/image";
+import Link from "next/link";
+import { SiGithub } from "react-icons/si";
 
-import { SearchIcon } from "../public/icons";
+import { SearchIcon } from "../../public/icons";
 
-import { Sora } from "@next/font/google";
+import { Sora } from "next/font/google";
 
 const sora = Sora({
   weight: "700",
-  subsets: "latin",
+  subsets: ["latin"],
 });
 
-const Header = ({ inputString, setInputString, setSearchString }) => {
+export default function Header({
+  inputString,
+  setInputString,
+  setSearchString,
+}) {
   const handleChange = (event) => {
     setInputString(event.target.value);
   };
@@ -22,12 +26,13 @@ const Header = ({ inputString, setInputString, setSearchString }) => {
   return (
     <header className="container mx-auto">
       <nav className="flex justify-between py-10 md:py-12">
-        <Link href={'/'} className={`gradient-text font-bold text-3xl ${sora.className}`}>
+        <Link
+          href={"/"}
+          className={`gradient-text font-bold text-3xl ${sora.className}`}
+        >
           devKhoj
         </Link>
-        <Link
-          href={'https://github.com/zelfroster/devkhoj'}
-        >
+        <Link href={"https://github.com/zelfroster/devkhoj"}>
           <SiGithub className="text-4xl p-1 rounded-md bg-gradient-to-r from-[#FF6C6CCC] to-[#8C8AFFCC] hover:from-[#FF6C6C00] hover:border-[1px] hover:border-white/20 hover:to-[#8C8AFF00]" />
         </Link>
       </nav>
@@ -35,7 +40,14 @@ const Header = ({ inputString, setInputString, setSearchString }) => {
         id="search-bar"
         className="max-w-3xl mx-auto pl-4 pr-3 py-3 flex flex-row-reverse gap-4 w-full bg-lightPurple rounded-lg border-[1px] border-white/10 md:gap-8 md:pl-8 md:flex-row"
       >
-        <Image src={SearchIcon} width={25} height={25} className="cursor-pointer md:w-8" alt="search-icon" onClick={handleSubmit} />
+        <Image
+          src={SearchIcon}
+          width={25}
+          height={25}
+          className="cursor-pointer md:w-8"
+          alt="search-icon"
+          onClick={handleSubmit}
+        />
         <form className="flex justify-between w-full">
           <input
             type="search"
@@ -54,7 +66,5 @@ const Header = ({ inputString, setInputString, setSearchString }) => {
         </form>
       </div>
     </header>
-  )
+  );
 }
-
-export default Header
