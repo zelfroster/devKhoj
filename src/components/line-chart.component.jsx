@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export default function LineChart({ data }) {
   const chartWidth = 1200;
   const chartHeight = 600;
   const offsetY = 40;
-  const paddingX = 50;
+  const paddingX = 40;
   const paddingY = 90;
   const maxY = Math.max(...data.map((item) => item.total));
   const guides = [...Array(16).keys()];
@@ -26,13 +26,10 @@ export default function LineChart({ data }) {
     };
   });
 
-  const points = properties.map((point) => {
-    const { x, y } = point;
-    return `${x},${y}`;
-  });
+  const points = properties.map((point) => `${point.x},${point.y}`);
 
   return (
-    <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} role="presentation">
+    <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} role='presentation'>
       {guides.map((_, index) => {
         const ratio = index / guides.length;
         const y = chartHeight - paddingY - chartHeight * ratio;
@@ -40,8 +37,8 @@ export default function LineChart({ data }) {
         return (
           <polyline
             key={index}
-            className="stroke-zinc-800"
-            fill="none"
+            className='stroke-zinc-800'
+            fill='none'
             strokeWidth={1}
             points={`${paddingX / 2},${y} ${chartWidth - paddingX / 2},${y}`}
           />
@@ -49,8 +46,8 @@ export default function LineChart({ data }) {
       })}
 
       <polyline
-        fill="none"
-        className="stroke-zinc-600"
+        fill='none'
+        className='stroke-zinc-600'
         strokeWidth={2}
         points={points}
       />
@@ -61,7 +58,7 @@ export default function LineChart({ data }) {
         return (
           <g key={index}>
             <circle
-              className="stroke-zinc-500 fill-black"
+              className='fill-black stroke-zinc-500'
               cx={x}
               cy={y}
               r={12}
@@ -70,9 +67,9 @@ export default function LineChart({ data }) {
             <text
               x={x}
               y={y + 2.8}
-              textAnchor="middle"
+              textAnchor='middle'
               fontSize={8}
-              className="font-bold fill-zinc-100 select-none"
+              className='select-none fill-zinc-100 font-bold'
             >
               {total}
             </text>
@@ -83,16 +80,15 @@ export default function LineChart({ data }) {
               })`}
             >
               <text
-                transform="rotate(45)"
-                textAnchor="start"
-                transformorigin="50% 50%"
+                transform='rotate(45)'
+                textAnchor='start'
                 fontSize={10}
-                className="fill-zinc-100 select-none"
+                className='select-none fill-zinc-100'
               >
                 {new Date(date).toLocaleDateString(undefined, {
-                  year: "2-digit",
-                  month: "numeric",
-                  day: "numeric",
+                  year: '2-digit',
+                  month: 'numeric',
+                  day: 'numeric',
                 })}
               </text>
             </g>
