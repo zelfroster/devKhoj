@@ -4,12 +4,11 @@ import { AiFillStar } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';
 
 export default function RepoCard({ repoData }) {
-  return null;
   return (
-    <div className='flex flex-col justify-between gap-3 rounded-md border-[1px] border-white/10 bg-[#111122] py-4 pl-4 pr-4 duration-200 hover:border-pink-400/60 md:pl-6 md:pr-8'>
+    <div className='flex grow flex-col justify-between gap-3 rounded-md border-[1px] border-white/10 bg-[#111122] py-4 pl-4 pr-4 duration-200 hover:border-pink-400/60 md:pl-6 md:pr-8'>
       <div className='flex flex-col gap-2'>
         <Link
-          href={repoData.html_url}
+          href={repoData.url}
           className='text-md gradient-text w-max md:text-lg'
         >
           {repoData.name}
@@ -22,13 +21,13 @@ export default function RepoCard({ repoData }) {
         <div className='flex items-center gap-2'>
           <BiGitRepoForked className='text-md md:text-xl' />
           <p className='text-[14px] text-white md:text-[16px]'>
-            {repoData.forks_count}
+            {repoData.forkCount}
           </p>
         </div>
         <div className='flex items-center gap-2'>
           <AiFillStar className='text-md md:text-xl' />
           <p className='text-[14px] text-white md:text-[16px]'>
-            {repoData.stargazers_count}
+            {repoData.stargazerCount}
           </p>
         </div>
       </div>

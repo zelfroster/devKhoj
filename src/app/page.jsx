@@ -39,7 +39,7 @@ export default function Home() {
         .query({
           query: gql`
             {
-              user(login: "subhoghoshX") {
+              user(login: "zelfroster") {
                 id
                 name
                 login
@@ -64,8 +64,9 @@ export default function Home() {
                   isFork: false
                   orderBy: { field: STARGAZERS, direction: DESC }
                 ) {
-                  totalCount
                   nodes {
+                    id
+                    url
                     name
                     forkCount
                     stargazerCount

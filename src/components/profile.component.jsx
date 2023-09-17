@@ -8,7 +8,7 @@ export default function Profile({ userData }) {
     name,
     login,
     createdAt,
-    blog,
+    websiteUrl,
     email,
     twitterUsername,
     followers,
@@ -47,8 +47,8 @@ export default function Profile({ userData }) {
           </div>
           <div className='items-right flex flex-col-reverse items-center gap-3 text-right xs:flex-row-reverse sm:gap-6 md:items-end lg:flex-col lg:gap-2'>
             <div className='flex justify-end gap-4 md:gap-6'>
-              {blog && (
-                <Link href={'/userData.blog'}>
+              {websiteUrl && (
+                <Link href={websiteUrl}>
                   <Image
                     src={LinkIcon}
                     width={25}
@@ -59,7 +59,7 @@ export default function Profile({ userData }) {
                 </Link>
               )}
               {email && (
-                <Link href={'/userData.email'}>
+                <Link href={email}>
                   <Image
                     src={MailIcon}
                     width={25}
@@ -94,7 +94,7 @@ export default function Profile({ userData }) {
               />
               <div className='flex items-end gap-1'>
                 <p className='text-white md:text-lg'>
-                  {followers && followers.totalCount}
+                  &nbsp;{followers && followers.totalCount}
                 </p>
                 <p className='inline-block tracking-tighter text-white/50 md:mb-[1px] md:text-[16px]'>
                   followers

@@ -47,13 +47,12 @@ export default function Description({ userData }) {
         <h2 className='gradient-text w-max text-xl font-medium'>
           Most Starred Repo
         </h2>
-        {/* <div className='flex flex-col gap-4 md:flex-row'>
-          {Array.from(mostStarredRepoArray)
-            .slice(0, 3)
-            .map((item) => (
-              <RepoCard key={item.id} repoData={item} />
+        <div className='flex flex-col gap-4 md:flex-row'>
+          {userData.repositories &&
+            userData.repositories.nodes.map((node) => (
+              <RepoCard key={node.id} repoData={node} />
             ))}
-        </div> */}
+        </div>
       </div>
     </section>
   );
