@@ -59,7 +59,7 @@ export function getContributionList(userData, days = 45) {
     const contributionListArray =
       userData.contributionsCollection.contributionCalendar.weeks
         .reduce((acc, curr) => (acc = [...acc, ...curr.contributionDays]), [])
-        .slice(daysInLeapYear - days, daysInLeapYear);
+        .slice(daysInLeapYear - days, daysInLeapYear + 1);
 
     return contributionListArray;
   } else return [];
