@@ -5,7 +5,6 @@ import RepoCard from './repo-card.component';
 
 export default function Description({ userData }) {
   return (
-    //temp margin
     <section className='flex animate-slideDown flex-col justify-between gap-10 rounded-lg border-[1px] border-white/10 bg-lightPurple p-6 text-white/80 md:p-10'>
       <div className='flex w-full flex-col justify-between gap-6 md:flex-row md:gap-10'>
         <div className='flex flex-col items-start justify-start gap-2'>
@@ -48,10 +47,9 @@ export default function Description({ userData }) {
           Most Starred Repo
         </h2>
         <div className='flex flex-col gap-4 md:flex-row'>
-          {userData.repositories &&
-            userData.repositories.nodes.map((node) => (
-              <RepoCard key={node.id} repoData={node} />
-            ))}
+          {userData?.repositories?.nodes.map((node) => (
+            <RepoCard key={node.id} repoData={node} />
+          ))}
         </div>
       </div>
     </section>
