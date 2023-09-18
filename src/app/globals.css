@@ -3,56 +3,59 @@
 @tailwind utilities;
 
 .gradient-text {
-  background: linear-gradient(270.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+  background: linear-gradient(270.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  /* text-fill-color: transparent; */
 }
 
 .gradient-text:hover {
   animation: rotateOnHover 400ms ease infinite;
 }
 
+svg.spinner circle {
+  transform-origin: 20px 20px;
+}
+
 @keyframes rotateOnHover {
   0% {
-    background: linear-gradient(270.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(270.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   20% {
-    background: linear-gradient(342.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(342.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   40% {
-    background: linear-gradient(54.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(54.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   60% {
-    background: linear-gradient(126.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(126.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   80% {
-    background: linear-gradient(198.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(198.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
   100% {
-    background: linear-gradient(270.01deg, #8C8AFF 0.01%, #FF6C6C 99.99%);
+    background: linear-gradient(270.01deg, #8c8aff 0.01%, #ff6c6c 99.99%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
