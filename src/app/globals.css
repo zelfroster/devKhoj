@@ -8,7 +8,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  /* text-fill-color: transparent; */
 }
 
 .gradient-text:hover {

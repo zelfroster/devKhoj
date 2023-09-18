@@ -11,7 +11,7 @@ export default function ContributionChart({ data }) {
 
   const properties = data.map((property, index) => {
     const { contributionCount, date } = property;
-    const x = (index / data.length) * (chartWidth - paddingX) + paddingX / 2;
+    const x = (index / data.length) * (chartWidth - paddingX) + paddingX / 1.25;
     const y =
       chartHeight -
       offsetY -
@@ -39,6 +39,12 @@ export default function ContributionChart({ data }) {
           viewBox={`0 0 ${chartWidth} ${chartHeight}`}
           role='presentation'
         >
+          <defs>
+            <linearGradient id='linear' x1='0%' y1='0%' x2='100%' y2='0%'>
+              <stop offset='0%' stopColor='#ff6c6c' />
+              <stop offset='100%' stopColor='#8c8aff' />
+            </linearGradient>
+          </defs>
           {guides.map((_, index) => {
             const ratio = index / guides.length;
             const y = chartHeight - paddingY - chartHeight * ratio;
@@ -49,8 +55,8 @@ export default function ContributionChart({ data }) {
                 className='stroke-white/10'
                 fill='none'
                 strokeWidth={1}
-                points={`${paddingX / 2},${y} ${
-                  chartWidth - paddingX / 2
+                points={`${paddingX / 10},${y} ${
+                  chartWidth - paddingX / 10
                 },${y}`}
               />
             );
@@ -58,7 +64,7 @@ export default function ContributionChart({ data }) {
 
           <polyline
             fill='none'
-            className='stroke-zinc-600'
+            stroke='url(#linear)'
             strokeWidth={2}
             points={points}
           />
@@ -69,24 +75,23 @@ export default function ContributionChart({ data }) {
             return (
               <g key={index}>
                 <circle
-                  className='fill-black stroke-zinc-500'
+                  className='fill-lightPurple stroke-gray-600'
                   cx={x}
                   cy={y}
-                  r={12}
-                  strokeWidth={2}
+                  r={10}
+                  strokeWidth={1}
                 />
                 <text
                   x={x}
                   y={y + 2.8}
                   textAnchor='middle'
                   fontSize={8}
-                  className='select-none fill-zinc-100 font-bold'
+                  className='select-none fill-[#bcbaff] font-bold'
                 >
                   {total}
                 </text>
-
                 <g
-                  transform={`translate(${x} ${
+                  transform={`translate(${x - 6} ${
                     chartHeight - (paddingY - offsetY)
                   })`}
                 >
@@ -94,7 +99,7 @@ export default function ContributionChart({ data }) {
                     transform='rotate(45)'
                     textAnchor='start'
                     fontSize={10}
-                    className='select-none fill-zinc-100'
+                    className='select-none fill-zinc-400'
                   >
                     {new Date(date).toLocaleDateString(undefined, {
                       year: '2-digit',
