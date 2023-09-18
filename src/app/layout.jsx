@@ -14,6 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning={true} lang='en' className='scroll-smooth'>
+      <head>
+        <link rel='icon' href='/favicon.ico' sizes='any' />
+      </head>
       <body
         className={`flex min-h-screen w-full flex-col justify-between bg-main text-white ${jetBrainsMono.className}`}
       >

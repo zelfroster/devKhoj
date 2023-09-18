@@ -32,7 +32,7 @@ export default function UserData({ loading, error, data }) {
 
   if (data !== undefined) {
     return (
-      <div className='flex flex-col justify-between gap-6'>
+      <div key={data.user.id} className='flex flex-col justify-between gap-6'>
         <Profile userData={data.user} />
         <Description userData={data.user} />
         <ContributionChart data={getContributionList(data.user)} />
