@@ -40,7 +40,7 @@ export default function ContributionChart({ data }) {
           role='presentation'
         >
           <defs>
-            <linearGradient id='linear' x1='0%' y1='0%' x2='100%' y2='0%'>
+            <linearGradient id='linear' x1='0%' y1='0%' x2='0%' y2='100%'>
               <stop offset='0%' stopColor='#ff6c6c' />
               <stop offset='100%' stopColor='#8c8aff' />
             </linearGradient>

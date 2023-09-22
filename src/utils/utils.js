@@ -53,14 +53,26 @@ export const GET_USER_DATA = gql`
 
 export function getContributionList(userData, days = 45) {
   if (userData?.contributionsCollection) {
-    const daysInLeapYear = 366;
-
     // Get Latest 45 days contribution
-    const contributionListArray =
-      userData.contributionsCollection.contributionCalendar.weeks
-        .reduce((acc, curr) => (acc = [...acc, ...curr.contributionDays]), [])
-        .slice(daysInLeapYear - days, daysInLeapYear + 1);
 
-    return contributionListArray;
+    const { totalDays, contributionList } =
+      userData.contributionsCollection.contributionCalendar.weeks.reduce(
+        (acc, curr) => {
+          acc.contributionList = [
+            ...acc.contributionList,
+            ...curr.contributionDays,
+          ];
+          acc.totalDays += curr.contributionDays.length;
+          return acc;
+        },
+        { totalDays: 0, contributionList: [] },
+      );
+
+    const contributionArray = contributionList.slice(
+      totalDays - days,
+      totalDays + 1,
+    );
+
+    return contributionArray;
   } else return [];
 }
