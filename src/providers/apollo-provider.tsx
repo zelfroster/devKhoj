@@ -10,6 +10,10 @@ const client = new ApolloClient({
   },
 });
 
-export default function ApolloProviderClient({ children }) {
+export default function ApolloProviderClient({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 }

@@ -3,9 +3,19 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BiGitRepoForked } from 'react-icons/bi';
 
-export default function RepoCard({ repoData }) {
+import { RepositoryNodeObjType } from '@/utils/utils';
+
+export default function RepoCard({
+  repoData,
+}: {
+  repoData: RepositoryNodeObjType;
+}) {
   return (
-    <div className='flex grow flex-col justify-between gap-3 rounded-md border-[1px] border-white/10 bg-[#111122] py-4 pl-4 pr-4 duration-200 hover:border-pink-400/60 md:pl-6 md:pr-8'>
+    <div
+      className='flex grow flex-col justify-between gap-3 rounded-md 
+      border-[1px] border-white/10 bg-[#111122] py-4 pl-4 pr-4 duration-200 
+      hover:border-pink-400/60 md:pl-6 md:pr-8'
+    >
       <div className='flex flex-col gap-2'>
         <Link
           href={repoData.url}

@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link.js';
 
 import { MailIcon, TwitterIcon, LinkIcon, PeopleIcon } from '@/public/icons';
+import { UserDataObjType } from '@/utils/utils';
 
-export default function Profile({ userData }) {
+export default function Profile({ userData }: { userData: UserDataObjType }) {
   const {
     avatarUrl,
     name,
@@ -16,7 +17,11 @@ export default function Profile({ userData }) {
     following,
   } = userData;
   return (
-    <section className='flex animate-slideDown flex-col items-center justify-center gap-4 rounded-lg border-[1px] border-white/10 bg-lightPurple px-4 py-6 md:flex-row md:justify-between md:gap-10 md:px-10'>
+    <section
+      className='flex animate-slideDown flex-col items-center justify-center
+      gap-4 rounded-lg border-[1px] border-white/10 bg-lightPurple px-4 py-6 
+      md:flex-row md:justify-between md:gap-10 md:px-10'
+    >
       {avatarUrl ? (
         <Image
           src={avatarUrl}
@@ -28,12 +33,18 @@ export default function Profile({ userData }) {
       ) : (
         <div className='h-[100px] w-[100px] shrink-0 rounded-full bg-white/10'></div>
       )}
-      <div className='flex w-full flex-col items-center justify-between gap-1 lg:flex-row'>
+      <div
+        className='flex w-full flex-col items-center justify-between gap-1 
+        lg:flex-row'
+      >
         <div className='items-left flex flex-col gap-3'>
           <h2 className='text-center text-3xl font-semibold lg:text-left'>
             {name}
           </h2>
-          <div className='-mt-2 flex flex-col flex-wrap items-center justify-center xs:flex-row'>
+          <div
+            className='-mt-2 flex flex-col flex-wrap items-center justify-center 
+            xs:flex-row'
+          >
             <p className='gradient-text text-lg font-medium lg:text-xl'>
               @{login}
             </p>
@@ -45,7 +56,11 @@ export default function Profile({ userData }) {
             </p>
           </div>
         </div>
-        <div className='items-right flex flex-col-reverse items-center gap-3 text-right xs:flex-row-reverse sm:gap-6 md:items-end lg:flex-col lg:gap-2'>
+        <div
+          className='items-right flex flex-col-reverse items-center gap-3 
+          text-right xs:flex-row-reverse sm:gap-6 md:items-end lg:flex-col 
+          lg:gap-2'
+        >
           <div className='flex justify-end gap-4 md:gap-6'>
             {websiteUrl && (
               <Link href={websiteUrl}>
@@ -96,7 +111,10 @@ export default function Profile({ userData }) {
               <p className='text-white md:text-lg'>
                 &nbsp;{followers && followers.totalCount}
               </p>
-              <p className='inline-block tracking-tighter text-white/50 md:mb-[1px] md:text-[16px]'>
+              <p
+                className='inline-block tracking-tighter text-white/50 
+                md:mb-[1px] md:text-[16px]'
+              >
                 followers
               </p>
             </div>
@@ -105,7 +123,10 @@ export default function Profile({ userData }) {
               <p className='text-white md:text-lg'>
                 {following && following.totalCount}
               </p>
-              <p className='inline-block tracking-tighter text-white/50 md:mb-[1px] md:text-[16px]'>
+              <p
+                className='inline-block tracking-tighter text-white/50 
+                md:mb-[1px] md:text-[16px]'
+              >
                 following
               </p>
             </div>

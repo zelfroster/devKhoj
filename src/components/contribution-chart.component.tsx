@@ -1,6 +1,10 @@
-import React from 'react';
+import { ContributionObjType } from '@/utils/utils';
 
-export default function ContributionChart({ data }) {
+export default function ContributionChart({
+  data,
+}: {
+  data: ContributionObjType[];
+}) {
   const chartWidth = 1200;
   const chartHeight = 600;
   const offsetY = 40;
@@ -66,7 +70,7 @@ export default function ContributionChart({ data }) {
             fill='none'
             stroke='url(#linear)'
             strokeWidth={2}
-            points={points}
+            points={points.toString()}
           />
 
           {properties.map((property, index) => {
