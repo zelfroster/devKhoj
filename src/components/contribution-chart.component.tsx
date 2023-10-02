@@ -5,8 +5,8 @@ export default function ContributionChart({
 }: {
   data: ContributionObjType[];
 }) {
-  const chartWidth = 1200;
-  const chartHeight = 600;
+  const chartWidth = 840;
+  const chartHeight = 360;
   const offsetY = 40;
   const paddingX = 40;
   const paddingY = 90;
@@ -15,7 +15,7 @@ export default function ContributionChart({
 
   const properties = data.map((property, index) => {
     const { contributionCount, date } = property;
-    const x = (index / data.length) * (chartWidth - paddingX) + paddingX / 1.25;
+    const x = (index / data.length) * (chartWidth - paddingX) + paddingX / 2;
     const y =
       chartHeight -
       offsetY -
@@ -33,7 +33,7 @@ export default function ContributionChart({
   const points = properties.map((point) => `${point.x},${point.y}`);
 
   return (
-    <section className='rounded-lg border border-white/10 bg-lightPurple p-6 md:p-10'>
+    <section className='rounded-lg border border-white/10 bg-lightPurple p-6 pb-4 md:p-10 md:pb-4'>
       <h3 className='gradient-text w-max text-xl font-medium'>
         Contribution Graph
       </h3>
@@ -58,7 +58,7 @@ export default function ContributionChart({
                 key={index}
                 className='stroke-white/10'
                 fill='none'
-                strokeWidth={1}
+                strokeWidth={0.5}
                 points={`${paddingX / 10},${y} ${
                   chartWidth - paddingX / 10
                 },${y}`}
@@ -69,7 +69,7 @@ export default function ContributionChart({
           <polyline
             fill='none'
             stroke='url(#linear)'
-            strokeWidth={2}
+            strokeWidth={1.2}
             points={points.toString()}
           />
 
@@ -82,14 +82,14 @@ export default function ContributionChart({
                   className='fill-lightPurple stroke-gray-600'
                   cx={x}
                   cy={y}
-                  r={10}
-                  strokeWidth={1}
+                  r={7}
+                  strokeWidth={0.5}
                 />
                 <text
                   x={x}
                   y={y + 2.8}
                   textAnchor='middle'
-                  fontSize={8}
+                  fontSize={7}
                   className='select-none fill-[#bcbaff] font-bold'
                 >
                   {total}
@@ -102,7 +102,7 @@ export default function ContributionChart({
                   <text
                     transform='rotate(45)'
                     textAnchor='start'
-                    fontSize={10}
+                    fontSize={8}
                     className='select-none fill-zinc-400'
                   >
                     {new Date(date).toLocaleDateString(undefined, {
