@@ -5,9 +5,18 @@ import Profile from './profile.component';
 import Description from './description.component';
 import ContributionChart from './contribution-chart.component';
 
-import { getContributionList } from '@/utils/utils';
+import { UserDataObjType, getContributionList } from '@/utils/utils';
+import { ApolloQueryResult } from '@apollo/client';
 
-export default function UserData({ loading, error, data }) {
+type DataObjType = {
+  user: UserDataObjType;
+};
+
+export default function UserData({
+  loading,
+  error,
+  data,
+}: ApolloQueryResult<DataObjType>) {
   if (error) {
     return (
       error.message.includes('Could not resolve to a User') && (

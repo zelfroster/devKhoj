@@ -13,7 +13,7 @@ import { GET_USER_DATA } from '@/utils/utils';
 
 export default function Home() {
   const [searchString, setSearchString] = useState('zelfroster');
-  const { loading, data, error } = useQuery(GET_USER_DATA, {
+  const { loading, data, error, networkStatus } = useQuery(GET_USER_DATA, {
     variables: {
       userName: searchString,
     },
@@ -23,7 +23,12 @@ export default function Home() {
       <Header />
       <main className='container mx-auto mb-auto flex flex-col justify-between gap-6'>
         <SearchBox setSearchString={setSearchString} />
-        <UserData error={error} loading={loading} data={data} />
+        <UserData
+          error={error}
+          loading={loading}
+          data={data}
+          networkStatus={networkStatus}
+        />
       </main>
       <Footer />
     </>

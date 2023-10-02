@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import {
+  ChangeEvent,
+  Dispatch,
+  MouseEvent,
+  SetStateAction,
+  useState,
+} from 'react';
 import Image from 'next/image';
 import { SearchIcon } from '@/public/icons';
 
-export default function SearchBox({ setSearchString }) {
+type SearchBoxProps = {
+  setSearchString: Dispatch<SetStateAction<string>>;
+};
+
+export default function SearchBox({ setSearchString }: SearchBoxProps) {
   const [inputString, setInputString] = useState('');
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputString(event.target.value);
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     if (inputString === '') {
       return;
     }
